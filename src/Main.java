@@ -1,14 +1,24 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        String word = "madam";
+        Scanner scanner = new Scanner(System.in);
 
-        String reversed = new StringBuilder(word).reverse().toString();
+        System.out.print("Enter a sentence: ");
+        String input = scanner.nextLine();
 
-        if(word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome");
+        // Remove spaces and convert to lowercase
+        String cleaned = input.replaceAll("\\s+", "").toLowerCase();
+
+        String reversed = new StringBuilder(cleaned).reverse().toString();
+
+        if(cleaned.equals(reversed)) {
+            System.out.println("It is a Palindrome");
         } else {
-            System.out.println(word + " is NOT a Palindrome");
+            System.out.println("It is NOT a Palindrome");
         }
+
+        scanner.close();
     }
 }
